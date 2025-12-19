@@ -1,0 +1,17 @@
+\section{Análise e Discussão de Resultados}
+
+Este capítulo apresenta a análise dos resultados obtidos com a implementação da segunda fase do projeto, focando-se na validação da arquitetura e das funcionalidades críticas.
+
+\subsection{Validação Funcional da Arquitetura N-Tier}
+Os testes realizados durante o desenvolvimento demonstraram que a separação em camadas foi implementada com sucesso. A aplicação de consola (camada de apresentação) interage exclusivamente com a camada de lógica de negócio (\texttt{ZooBL}), que por sua vez valida os dados antes de recorrer à camada de dados (\texttt{ZooDB}).
+
+Esta estrutura provou ser robusta. Por exemplo, ao tentar inserir um animal com um identificador já existente, a camada de regras deteta o conflito via LINQ e lança a exceção personalizada \texttt{AnimalException}, impedindo a corrupção dos dados na memória.
+
+\subsection{Persistência de Dados}
+Um dos principais requisitos desta fase era a persistência. Verificou-se que o mecanismo de serialização binária implementado no \textit{Singleton} \texttt{ZooDB} funciona corretamente.
+Ao fechar a aplicação, os dados em memória (listas de animais) são serializados para o ficheiro \texttt{dadosZoo.bin}. Ao reiniciar a aplicação, estes dados são desserializados e carregados novamente, garantindo a continuidade do estado do sistema entre execuções.
+
+\subsection{Integração de Padrões}
+A utilização do padrão \textit{Factory} na criação de animais simplificou o código na camada de apresentação, abstraindo a complexidade da instanciação das classes concretas (\texttt{Mamifero}, \texttt{Ave}, \texttt{Reptil}).
+
+Adicionalmente, a implementação da classe \texttt{Bilhete} permitiu validar o uso de membros estáticos (\texttt{static}) para contadores globais (total vendido e total arrecadado), demonstrando um conceito distinto do padrão \textit{Singleton} utilizado para a base de dados central.

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ZooBO.Animal" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACEAAAAAAAAAAAQAAAAgAAAAIAAEAAAAAAAAEAAgA=</HashCode>
+      <FileName>Animal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.Mamifero" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAIAAAACAAAA=</HashCode>
+      <FileName>Mamifero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.Reptil" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAQAAAAAAAAAAAAEAAEAAAAAAAAAA=</HashCode>
+      <FileName>Reptil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.Ave" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAAAEAAA=</HashCode>
+      <FileName>Ave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.AnimalFactory" Collapsed="true">
+    <Position X="2" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>AnimalFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.LimpezaJaula" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LimpezaJaula.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.Alimentacao" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Alimentacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZooBO.Tarefa" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAACEAAA=</HashCode>
+      <FileName>Tarefa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

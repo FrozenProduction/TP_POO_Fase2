@@ -1,0 +1,16 @@
+\section{Enquadramento Teórico e Prático}
+
+Este capítulo apresenta os fundamentos teóricos essenciais que suportam as decisões de implementação tomadas durante o desenvolvimento do projeto.
+
+\subsection{Arquitetura N-Tier}
+A arquitetura em camadas, ou N-Tier, é um padrão de arquitetura de software que separa a aplicação em camadas lógicas e físicas. Tipicamente, esta separação inclui a Camada de Apresentação (UI), a Camada de Lógica de Negócio (BLL) e a Camada de Acesso a Dados (DAL) \parencite{microsoft_arch}. Esta abordagem permite que a manutenção numa camada não afete necessariamente as outras, promovendo a modularidade.
+
+\subsection{Padrões de Desenho (Design Patterns)}
+Os padrões de desenho são soluções típicas para problemas comuns no design de software.
+\begin{itemize}
+    \item \textbf{Singleton:} Garante que uma classe tenha apenas uma instância e fornece um ponto de acesso global a ela. É fundamental para a gestão centralizada de dados em memória \parencite{gof_patterns}.
+    \item \textbf{Factory Method:} Define uma interface para criar um objeto, mas deixa as subclasses decidirem que classe instanciar. Permite que o código seja independente das classes concretas que precisa criar.
+\end{itemize}
+
+\subsection{Persistência e Serialização}
+A persistência refere-se à característica de um estado que sobrevive ao processo que o criou. Em C\#, a serialização binária permite converter o estado de um objeto num fluxo de bytes para armazenamento em disco, permitindo a sua reconstrução posterior \parencite{ms_docs_serialization}.

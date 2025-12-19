@@ -1,0 +1,43 @@
+\section{Trabalho Desenvolvido}
+
+Neste capítulo, detalha-se a arquitetura da solução implementada, descrevendo a organização dos projetos, as classes principais e a lógica de interação entre camadas.
+
+\subsection{Arquitetura da Solução}
+A solução \textit{GereZoo} foi reestruturada seguindo o padrão N-Tier, dividida em cinco projetos distintos, conforme ilustrado na Figura \ref{fig:estrutura}. Esta separação garante que a interface de utilizador não acede diretamente aos dados, passando sempre pela camada de regras.
+
+\begin{figure}[H]
+    \centering
+    % TIRA UM PRINT AO TEU SOLUTION EXPLORER E CHAMA-LHE estrutura_solucao.png
+    \includegraphics[width=0.6\textwidth]{estrutura_solucao.png}
+    \caption{Estrutura da Solução no Visual Studio (5 Projetos)}
+    \label{fig:estrutura}
+\end{figure}
+
+As responsabilidades foram distribuídas da seguinte forma:
+\begin{itemize}
+    \item \textbf{ZooBO (Business Objects):} Contém as classes de dados simples (\textit{Animal}, \textit{Mamifero}, \textit{Ave}, \textit{Reptil}, \textit{Bilhete}, \textit{Tarefas}). Não contém lógica complexa.
+    \item \textbf{ZooDB (Data Access):} Implementa o padrão \textit{Singleton}. É responsável por armazenar as listas em memória e gerir a gravação/leitura do ficheiro binário.
+    \item \textbf{ZooBL (Business Logic):} Contém as regras de negócio. Valida, por exemplo, se um ID de animal já existe antes de permitir a inserção. Utiliza LINQ para estas verificações.
+    \item \textbf{GereZoo (App):} A aplicação de consola que interage com o utilizador.
+    \item \textbf{Excepcoes:} Biblioteca dedicada a erros personalizados, como \texttt{AnimalException}.
+\end{itemize}
+
+\subsection{Implementação de Padrões}
+A implementação seguiu rigorosamente os padrões lecionados.
+
+\subsubsection{Padrão Factory}
+Para instanciar novos animais sem acoplar a aplicação às classes concretas, implementou-se a classe estática \texttt{AnimalFactory} no projeto \textit{ZooBO}. Esta recebe uma \textit{string} com o tipo de animal e devolve a instância correta (Polimorfismo).
+
+\subsubsection{Persistência de Dados}
+A persistência foi assegurada no projeto \textit{ZooDB} através da classe \texttt{BinaryFormatter}. O método \texttt{GuardarDados} serializa a lista de animais para o ficheiro \texttt{dadosZoo.bin}, garantindo que a hierarquia de classes e os dados são preservados integralmente.
+
+\subsection{Modelação de Classes}
+A Figura \ref{fig:diagrama} apresenta o diagrama de classes atualizado, evidenciando as relações de herança entre \texttt{Animal} e as suas especializações, bem como a estrutura de tarefas.
+
+\begin{figure}[H]
+    \centering
+    % O TEU DIAGRAMA DO VISUAL STUDIO AQUI
+    \includegraphics[width=0.9\textwidth]{diagrama_classes_fase2.png}
+    \caption{Diagrama de Classes da Fase 2}
+    \label{fig:diagrama}
+\end{figure}

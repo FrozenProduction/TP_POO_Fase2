@@ -1,0 +1,61 @@
+\documentclass[a4paper, 12pt]{article}
+
+% --- Pacotes e Configurações ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel} % Garante PT-PT
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{parskip} % Espaçamento entre parágrafos
+\usepackage{titlesec}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=authoryear]{biblatex} % Gestão automática de bibliografia
+
+% Caminho das imagens
+\graphicspath{ {imagens/} }
+
+% Cabeçalho e Rodapé
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{POO - Engenharia de Sistemas Informáticos}
+\fancyhead[R]{Fase 2}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+% Capa
+\input{00_Capa.tex}
+
+% Resumo
+\newpage
+\input{01_Resumo.tex}
+
+% Índices
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+
+% Conteúdo
+\newpage
+\input{02_Introducao.tex}
+
+\newpage
+\input{03_Enquadramento.tex}
+
+\newpage
+\input{04_TrabalhoDesenvolvido.tex}
+
+\newpage
+\input{05_Resultados.tex}
+
+\newpage
+\input{06_Conclusao.tex}
+
+\newpage
+\input{07_GitHub.tex}
+
+\end{document}
