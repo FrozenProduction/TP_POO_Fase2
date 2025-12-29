@@ -35,6 +35,7 @@ A solução `GereZoo` está dividida em 5 projetos distintos para garantir o des
 | **`ZooBL`** (Business Logic) | Lib | Contém as regras de negócio e validações (ex: verifica se ID duplicado via **LINQ**) antes de chamar a BD. |
 | **`Excepcoes`** | Lib | Biblioteca dedicada a erros personalizados do projeto. |
 | **`GereZoo`** (Presentation) | Exe | Aplicação de Consola. Interage com o utilizador e chama apenas a camada de Regras (`ZooBL`). |
+| **`ZooTests`** (Unit Tests) | Test | Projeto de testes unitários (**MSTest**) para validar regras de negócio críticas (ex: IDs duplicados). |
 
 Também inclui a pasta:
 * **`Relatorio_POO_Fase2`**: Contém o relatório técnico desenvolvido em **LaTeX**, documentando a arquitetura e as decisões tomadas.
