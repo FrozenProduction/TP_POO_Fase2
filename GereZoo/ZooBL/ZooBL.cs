@@ -16,37 +16,34 @@ using Excepcoes;
 namespace ZooBL
 {
     /// <summary>
-    /// Camada de Lógica de Negócio (Business Logic Layer).
-    /// Faz a ponte entre a UI e a BD, aplicando validações e regras.
+    /// Camada de Regras de Negócio (Business Logic Layer).
+    /// Responsável por validar dados antes de interagir com a base de dados.
+    /// Aplica o padrão Singleton através da chamada à ZooDB.
     /// </summary>
     public class ZooBL
     {
         /// <summary>
-        /// Valida e insere um novo animal.
-        /// Verifica se o animal é nulo e se o ID já existe (usando LINQ).
+        /// Tenta inserir um novo animal no sistema.
+        /// Verifica se o objeto é nulo e se o ID já existe (regra de unicidade).
         /// </summary>
-        /// <param name="a">O animal a inserir.</param>
-        /// <returns>True se inserido com sucesso.</returns>
-        /// <exception cref="AnimalException">Lançada se os dados forem inválidos.</exception>
+        /// <param name="a">Objeto animal a inserir.</param>
+        /// <returns>Verdadeiro se inserido com sucesso.</returns>
+        /// <exception cref="AnimalException">Lançada caso o ID já exista.</exception>
         public static bool InserirAnimal(Animal a)
         {
-            if (a == null)
-                throw new AnimalException("O objeto animal não pode ser nulo.");
+            if (a == null) throw new AnimalException("O animal não pode ser nulo.");
 
-            // Acesso ao Singleton da DB
-            var animaisExistentes = ZooDB.ZooDB.Instance.ObterAnimais();
-
-            // Validação LINQ para duplicados
-            if (animaisExistentes.Any(x => x.Id == a.Id))
+            // Validação com LINQ: Verifica se algum animal na lista tem o mesmo ID
+            if (ZooDB.ZooDB.Instance.ObterAnimais().Any(x => x.Id == a.Id))
             {
-                throw new AnimalException($"Já existe um animal com o ID {a.Id}.");
+                throw new AnimalException($"Erro de Negócio: O ID '{a.Id}' já está a ser utilizado.");
             }
 
             return ZooDB.ZooDB.Instance.InserirAnimal(a);
         }
 
         /// <summary>
-        /// Obtém a lista completa de animais.
+        /// Obtém a lista completa de animais registados.
         /// </summary>
         public static List<Animal> ListarTodosAnimais()
         {
@@ -54,7 +51,7 @@ namespace ZooBL
         }
 
         /// <summary>
-        /// Solicita a gravação dos dados em disco.
+        /// Persistência: Grava os dados em ficheiro binário.
         /// </summary>
         public static bool GravarAnimais(string ficheiro)
         {
@@ -62,7 +59,7 @@ namespace ZooBL
         }
 
         /// <summary>
-        /// Solicita o carregamento dos dados do disco.
+        /// Persistência: Carrega os dados do ficheiro binário.
         /// </summary>
         public static bool LerAnimais(string ficheiro)
         {

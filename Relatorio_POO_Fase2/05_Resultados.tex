@@ -15,3 +15,10 @@ Ao fechar a aplicação, os dados em memória (listas de animais) são serializa
 A utilização do padrão \textit{Factory} na criação de animais simplificou o código na camada de apresentação, abstraindo a complexidade da instanciação das classes concretas (\texttt{Mamifero}, \texttt{Ave}, \texttt{Reptil}).
 
 Adicionalmente, a implementação da classe \texttt{Bilhete} permitiu validar o uso de membros estáticos (\texttt{static}) para contadores globais (total vendido e total arrecadado), demonstrando um conceito distinto do padrão \textit{Singleton} utilizado para a base de dados central.
+
+\subsection{Validação e Testes}
+A robustez da aplicação foi validada através de dois vetores:
+\begin{enumerate}
+    \item \textbf{Testes Funcionais:} Execução da aplicação de consola, onde se verificou a persistência de dados (os animais mantêm-se após reiniciar o programa) e a correta listagem polimórfica das diferentes espécies.
+    \item \textbf{Testes Unitários:} Execução da bateria de testes automatizados do projeto \texttt{ZooTests}, que confirmaram que a camada \texttt{ZooBL} está a bloquear corretamente IDs duplicados e dados nulos, garantindo a qualidade do código.
+\end{enumerate}

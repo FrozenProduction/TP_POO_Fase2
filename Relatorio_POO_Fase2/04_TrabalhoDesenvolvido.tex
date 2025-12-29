@@ -36,8 +36,17 @@ A Figura \ref{fig:diagrama} apresenta o diagrama de classes atualizado, evidenci
 
 \begin{figure}[H]
     \centering
-    % O TEU DIAGRAMA DO VISUAL STUDIO AQUI
     \includegraphics[width=0.9\textwidth]{diagrama_classes_fase2.png}
     \caption{Diagrama de Classes da Fase 2}
     \label{fig:diagrama}
 \end{figure}
+
+\subsection{Testes Unitários}
+Seguindo as boas práticas de Engenharia de Software abordadas na Aula 17, foi criado um projeto adicional denominado \texttt{ZooTests}.
+Este projeto utiliza a framework \textit{MSTest} para validar automaticamente as regras de negócio críticas.
+Criaram-se métodos de teste (\texttt{[TestMethod]}) para verificar:
+\begin{itemize}
+    \item A inserção bem-sucedida de um animal válido.
+    \item O lançamento da exceção \texttt{AnimalException} ao tentar inserir um animal com ID duplicado.
+\end{itemize}
+Esta abordagem garante a integridade do sistema antes da entrada em produção.
